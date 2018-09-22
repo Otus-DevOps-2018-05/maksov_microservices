@@ -1,0 +1,11 @@
+- name: Configure docker image
+  hosts: grafana
+  tasks:
+   - name: Copy Prometheus Config
+     become: true 
+     copy: 
+      src: ../prometheus/prometheus.yml
+      dest: /volumes/prometheus/prometheus.yml
+      mode: 0640
+     tags: prometheus
+  

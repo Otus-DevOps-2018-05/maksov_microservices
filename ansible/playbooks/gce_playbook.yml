@@ -1,0 +1,28 @@
+- name: Compute Engine Instance Examples
+  hosts: grafana
+  vars:
+    service_account_email: "394066679824-compute@developer.gserviceaccount.com"
+    credentials_file: "~/docker-193409.json"
+    project_id: "docker-193409"
+  tasks:
+    - name: create directories
+      file:
+       path: "/tmp/{{ item }}"
+       state: directory
+       mode: 0755
+      with_items:
+       - provisioning/dashboards
+       - provisioning/datasources
+
+
+
+
+
+
+
+
+
+      
+  
+
+
