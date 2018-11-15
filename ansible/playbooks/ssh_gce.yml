@@ -1,0 +1,11 @@
+- name: SSH config
+  hosts: all
+  tasks:
+   - name: Wait for SSH for instance
+     wait_for:
+      delay: 1
+      port: 22
+      state: started
+      timeout: 30
+   
+
