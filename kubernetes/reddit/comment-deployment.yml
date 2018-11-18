@@ -1,18 +1,23 @@
 apiVersion: apps/v1beta2
-kind:Deployment
+kind: Deployment
 metadata:
-	name: commment-deployment
+  name: comment
+  labels:
+    app: reddit
+    component: comment
 spec:
-	replicas:1
-	selector:
-		matchLabels:
-			app: comment
-	template:
-		metadata:
-			name:comment-pod
-			labels:
-				app: comment
-			spec:
-				containers:
-				- image: maksov/comment
-				  name: comment
+  replicas: 3
+  selector:
+    matchLabels:
+      app: reddit
+      component: comment
+  template:
+    metadata:
+      name: comment
+      labels:
+        app: reddit
+        component: comment
+    spec:
+      containers:
+      - image: chromko/comment
+        name: comment

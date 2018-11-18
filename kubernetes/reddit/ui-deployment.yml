@@ -1,18 +1,28 @@
 apiVersion: apps/v1beta2
-kind:Deployment
+kind: Deployment
 metadata:
-	name: ui-deployment
+  name: ui
+  labels:
+    app: reddit
+    component: ui
 spec:
-	replicas:1
-	selector:
-		matchLabels:
-			app: ui
-	template:
-		metadata:
-			name:ui-pod
-			labels:
-				app: ui
-			spec:
-				containers:
-				- image: maksov/ui
-				  name: ui
+  replicas: 3
+  selector:
+    matchLabels:
+      app: reddit
+      component: ui
+  template:
+    metadata:
+      name: ui-pod
+      labels:
+        app: reddit
+        component: ui
+    spec:
+      containers:
+      - image: chromko/ui
+        name: ui
+        env:
+        - name: ENV
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
