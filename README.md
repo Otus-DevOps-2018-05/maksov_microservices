@@ -1224,4 +1224,19 @@ docker/fluentd/fluent.conf
 
 ```
 docker-compose -f docker-compose-logging.yml up -d --build
-```
+
+
+## Введение в Kubernetes
+
+#### Создание примитивов
+
+Созданы файлы:
+- comment-deployment.yml
+- mongo-deployment.yaml
+- post-deployment.yml
+- ui-deployment.yml
+
+
+#### Kubernetes The Hard Way
+
+Данное практическое задание выполнено согласно туториалу Kubernetes The Hard Way (https://github.com/kelseyhightower/kubernetes-the-hard-way)

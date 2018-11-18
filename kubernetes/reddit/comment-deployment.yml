@@ -1,0 +1,18 @@
+apiVersion: apps/v1beta2
+kind:Deployment
+metadata:
+	name: commment-deployment
+spec:
+	replicas:1
+	selector:
+		matchLabels:
+			app: comment
+	template:
+		metadata:
+			name:comment-pod
+			labels:
+				app: comment
+			spec:
+				containers:
+				- image: maksov/comment
+				  name: comment
