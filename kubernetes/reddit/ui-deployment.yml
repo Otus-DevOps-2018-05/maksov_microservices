@@ -19,7 +19,7 @@ spec:
         component: ui
     spec:
       containers:
-      - image: chromko/ui
+      - image: maksov/ui
         name: ui
         env:
         - name: ENV
