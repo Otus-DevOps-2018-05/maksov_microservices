@@ -1226,7 +1226,7 @@ docker/fluentd/fluent.conf
 docker-compose -f docker-compose-logging.yml up -d --build
 
 
-## Введение в Kubernetes
+## Homework 26 Введение в Kubernetes
 
 #### Создание примитивов
 
