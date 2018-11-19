@@ -1244,6 +1244,8 @@ docker-compose -f docker-compose-logging.yml up -d --build
 
 ## Homework 27 Kubernetes. Запуск кластера и приложения. Модель безопасности.
 
+[![Build Status](https://travis-ci.com/Otus-DevOps-2018-05/maksov_microservices.svg?branch=kubernetes-2)](https://travis-ci.com/Otus-DevOps-2018-05/maksov_microservices)
+
 #### Деплой локального Kubernetes
 
 1. Выполнено на Windows. minikube c драйвером hyperv.
