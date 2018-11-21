@@ -6,7 +6,7 @@ metadata:
     app: reddit
     component: ui
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: reddit
@@ -15,14 +15,8 @@ spec:
     metadata:
       name: ui-pod
       labels:
-        app: reddit
-        component: ui
+        app: ui
     spec:
       containers:
       - image: maksov/ui
         name: ui
-        env:
-        - name: ENV
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.namespace
