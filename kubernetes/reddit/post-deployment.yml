@@ -1,16 +1,14 @@
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: post
+  name: post-deployment
   labels:
-    app: reddit
-    component: post
+    app: post
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: reddit
-      component: post
+      app: post
   template:
     metadata:
       name: post-pod
