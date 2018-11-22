@@ -1363,3 +1363,59 @@ us-central1-a --project docker-182408
 ```
 
 Ссылка на скриншот работоспособности приложения https://cdn1.savepice.ru/uploads/2018/11/18/e5226346d22e1a35e4d15d37b6607bef-full.png
+
+## Homework 28 Ingress-контроллеры и сервисы в Kubernetes [![Build Status](https://travis-ci.com/Otus-DevOps-2018-05/maksov_microservices.svg?branch=kubernetes-3)](https://travis-ci.com/Otus-DevOps-2018-05/maksov_microservices)
+
+
+### Ingress Controller
+
+#### Ходвыполнения работы
+
+- Настройка внешнего балансировщика LoadBalancer
+- Создание Ingress и настройка Ingress Controller
+- защита cthdbcf c сервиса с помощью TLS
+```
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout tls.key -out tls.crt -subj "/CN= 
+35.190.66.90" 
+```
+
+```
+kubectl create secret tls ui-ingress --key tls.key --cert tls.crt -n dev 
+```
+
+- создание объекта TLS с помощью манифеста kubernetes(Задание со *)
+
+```
+ kubectl get secrets ui-ingress  -n dev -o yaml > secret.yml
+
+```
+
+- Настраиваем Network Policy
+```
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: deny-db-traffic
+  labels:
+    app: reddit
+spec:
+  podSelector:
+    matchLabels:
+      app: reddit
+      component: mongo
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: reddit
+          component: comment
+          component: post
+```
+
+- Хранилище для базы
+
+Изучены различные типы хранилища и подключение подов к ним!
+
