@@ -1419,3 +1419,11 @@ spec:
 
 Изучены различные типы хранилища и подключение подов к ним!
 
+
+## Homework 29 CI/CD в Kubernetes [![Build Status](https://travis-ci.com/Otus-DevOps-2018-05/maksov_microservices.svg?branch=kubernetes-4](https://travis-ci.com/Otus-DevOps-2018-05/maksov_microservices)
+
+План
+
+1. Работа с Helm
+
+- 
