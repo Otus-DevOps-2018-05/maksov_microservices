@@ -1,5 +1,7 @@
 ## python specific
 *.pyc
+*.tgz
+*.lock
 build_info.txt
 .env
 blackbox_exporter
