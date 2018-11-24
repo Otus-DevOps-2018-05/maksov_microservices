@@ -1426,4 +1426,17 @@ spec:
 
 1. Работа с Helm
 
-- 
+- Стандартизация поставки приложений в Kubernetes
+
+-- Создали Charts ui,post,deployment
+Структура приложения:
+- ui
+   |-Chart.yaml
+   |-templates
+   | |-deployment.yaml
+   | |-ingress.yaml
+   | |-service.yaml
+
+```
+helm install --name test-ui-1 <dir>
+``` 
