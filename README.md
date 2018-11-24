@@ -1240,3 +1240,126 @@ docker-compose -f docker-compose-logging.yml up -d --build
 #### Kubernetes The Hard Way
 
 Данное практическое задание выполнено согласно туториалу Kubernetes The Hard Way (https://github.com/kelseyhightower/kubernetes-the-hard-way)
+
+
+## Homework 27 Kubernetes. Запуск кластера и приложения. Модель безопасности.
+
+[![Build Status](https://travis-ci.com/Otus-DevOps-2018-05/maksov_microservices.svg?branch=kubernetes-2)](https://travis-ci.com/Otus-DevOps-2018-05/maksov_microservices)
+
+#### Деплой локального Kubernetes
+
+1. Выполнено на Windows. minikube c драйвером hyperv.
+2. Конфигурирование Kubectl
+Некоторые команды:
+```
+ kubectl config set-cluster … cluster_name
+
+ kubectl config set-context context_name \
+--cluster=cluster_name \
+--user=user_name
+
+ kubectl config current-context 
+
+  kubectl config get-contexts
+```
+3. Запуск приложения
+
+#### Задание post-deployment.yml
+```
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: post
+  labels:
+    app: reddit
+    component: post
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: reddit
+      component: post
+  template:
+    metadata:
+      name: post
+      labels:
+        app: reddit
+        component: post
+    spec:
+      containers:
+      - image: maksov/post
+        name: post
+        env:
+        - name: POST_DATABASE_HOST
+          value: post-db
+
+```
+
+Проброс портов
+
+```
+ kubectl port-forward <pod-name> 8080:9292
+```
+
+#### Задание post-service.yml
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: post
+  labels:
+    app: reddit
+    component: post
+spec:
+  ports:
+  - port: 5000
+    protocol: TCP
+    targetPort: 5000
+  selector:
+    app: reddit
+    component: post
+```
+
+#### Задание post-mongodb-service.yml
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: post-db
+  labels:
+    app: reddit
+    component: mongo
+    post-db: "true"
+spec:
+  ports:
+  - port: 27017
+    protocol: TCP
+    targetPort: 27017
+  selector:
+    app: reddit
+    component: mongo
+    post-db: "true"
+```
+
+Доступ ui снаружи
+```
+spec:
+ type: NodePort
+ ports:
+- nodePort: 32092
+ port: 9292
+ protocol: TCP
+ targetPort: 9292
+ selector:
+```
+
+4. Разворачиваем Kubernetes в GCP
+```
+Пример подключения
+ gcloud container clusters get-credentials cluster-1 --zone
+us-central1-a --project docker-182408
+
+```
+
+Ссылка на скриншот работоспособности приложения https://cdn1.savepice.ru/uploads/2018/11/18/e5226346d22e1a35e4d15d37b6607bef-full.png
