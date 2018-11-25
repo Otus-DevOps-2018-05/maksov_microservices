@@ -1481,3 +1481,21 @@ helm install --name test-ui-1 <dir>
 
 2. Развертывание Gitlab в k8s
 3. Запуск CI/CD конвейера в Kubernetes
+
+
+## Homework 30 CI/CD в Kubernetes [![Build Status](https://travis-ci.com/Otus-DevOps-2018-05/maksov_microservices.svg?branch=kubernetes-4)](https://travis-ci.com/Otus-DevOps-2018-05/maksov_microservices)
+
+### Подготовка
+
+```
+helm install stable/nginx-ingress --name nginx
+```
+
+### План работы
+
+1. Развертывание Prometheus в k8s
+```
+helm upgrade prom . -f custom_values.yml --install
+```
+Настройка Prometheus и Grafana для  сбора  метрик
+Настройка EFK для сбора логов
