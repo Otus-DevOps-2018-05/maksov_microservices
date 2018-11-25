@@ -1,0 +1,8 @@
+---
+name: ui 
+version: 1.0.0 
+description: MAKSOV reddit application UI 
+maintainers: 
+  - name: Ovchinnikov Maksim 
+    email: maksov4@gmail.com 
+appVersion: 1.0 
