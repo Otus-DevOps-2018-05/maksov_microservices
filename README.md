@@ -1364,7 +1364,7 @@ us-central1-a --project docker-182408
 
 Ссылка на скриншот работоспособности приложения https://cdn1.savepice.ru/uploads/2018/11/18/e5226346d22e1a35e4d15d37b6607bef-full.png
 
-## Homework 28 Ingress-контроллеры и сервисы в Kubernetes [![Build Status](https://travis-ci.com/Otus-DevOps-2018-05/maksov_microservices.svg?branch=kubernetes-3)](https://travis-ci.com/Otus-DevOps-2018-05/maksov_microservices)
+## Homework 28 Ingress-контроллеры и сервисы в Kubernetes [![Build Status](https://travis-ci.com/Otus-DevOps-2018-05/maksov_microservices.svg?branch=kubernetes-4)](https://travis-ci.com/Otus-DevOps-2018-05/maksov_microservices)
 
 
 ### Ingress Controller
@@ -1420,7 +1420,7 @@ spec:
 Изучены различные типы хранилища и подключение подов к ним!
 
 
-## Homework 29 CI/CD в Kubernetes [![Build Status](https://travis-ci.com/Otus-DevOps-2018-05/maksov_microservices.svg?branch=kubernetes-4](https://travis-ci.com/Otus-DevOps-2018-05/maksov_microservices)
+## Homework 29 CI/CD в Kubernetes [![Build Status](https://travis-ci.com/Otus-DevOps-2018-05/maksov_microservices.svg?branch=kubernetes-4)](https://travis-ci.com/Otus-DevOps-2018-05/maksov_microservices)
 
 План
 
