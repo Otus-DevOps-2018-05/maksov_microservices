@@ -1493,9 +1493,17 @@ helm install stable/nginx-ingress --name nginx
 
 ### План работы
 
-1. Развертывание Prometheus в k8s
+1. Развертывание Prometheus и Grafana в k8s
 ```
 helm upgrade prom . -f custom_values.yml --install
+
+helm upgrade --install grafana stable/grafana \
+--set "adminPassword=admin" \
+--set "service.type=NodePort" \
+--set "ingress.enabled=true" \
+--set "ingress.hosts={reddit-grafana}"
 ```
-Настройка Prometheus и Grafana для  сбора  метрик
-Настройка EFK для сбора логов
+
+2. Настройка Prometheus и Grafana для  сбора  метрик
+
+3. Настройка EFK для сбора логов
