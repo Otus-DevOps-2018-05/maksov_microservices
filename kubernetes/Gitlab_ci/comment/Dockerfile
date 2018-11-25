@@ -1,23 +1,15 @@
-FROM alpine:latest
+FROM ruby:2.2
+RUN apt-get update -qq && apt-get install -y build-essential
 
+ENV APP_HOME /app
+RUN mkdir $APP_HOME
+WORKDIR $APP_HOME
 
-WORKDIR /app
-
-COPY . /app
+ADD Gemfile* $APP_HOME/
+RUN bundle install
+ADD . $APP_HOME
 
 ENV COMMENT_DATABASE_HOST comment_db
-ENV CMMENT_DATABASE comments
-
-
-RUN apk update \
-	&& apk add --no-cache build-base \
-	                      ruby \
-	                      ruby-bundler \
-	                      ruby-dev \
-	                      ruby-json \
-	&& gem install bundler --no-ri --no-rdoc \
-	&& bundle install && apk del build-base ruby-dev \
-	&& rm -rf /usr/share/terminfo/ \
-	&& rm -rf /root/.bundle/cache/
+ENV COMMENT_DATABASE comments
 
 CMD ["puma"]
