@@ -1428,15 +1428,56 @@ spec:
 
 - Стандартизация поставки приложений в Kubernetes
 
--- Создали Charts ui,post,deployment
+- Создали Charts ui,post,deployment
 Структура приложения:
-- ui
+```
+-- ui
    |-Chart.yaml
    |-templates
    | |-deployment.yaml
    | |-ingress.yaml
    | |-service.yaml
 
-```
+Проверим
 helm install --name test-ui-1 <dir>
 ``` 
+
+- Итоговая структура (Управление зависемостями)
+
+```
+-- ui
+   |-Chart.yaml
+   |-values.yaml
+   |-templates
+   | |-_helpers.tpl
+   | |-deployment.yaml
+   | |-ingress.yaml
+   | |-service.yaml
+-- post
+   |-Chart.yaml
+   |-values.yaml
+   |-templates
+   | |-_helpers.tpl
+   | |-deployment.yaml
+   | |-service.yaml
+-- comment
+   |-Chart.yaml
+   |-values.yaml
+   |-templates
+   | |-_helpers.tpl
+   | |-deployment.yaml
+   | |-service.yaml
+-- reddit
+   |- Chart.yaml
+   |- charts
+   |  |-- comment-1.0.0.tgz
+   |  |-- post-1.0.0.tgz
+   |  |-- ui-1.0.0.tgz
+   |--requirements.lock
+   |--requirements.yaml
+   |--values.yaml
+
+```
+
+2. Развертывание Gitlab в k8s
+3. Запуск CI/CD конвейера в Kubernetes
