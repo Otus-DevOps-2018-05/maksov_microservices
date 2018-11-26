@@ -1226,7 +1226,7 @@ docker/fluentd/fluent.conf
 docker-compose -f docker-compose-logging.yml up -d --build
 
 
-## Homework 26 Введение в Kubernetes
+## Homework 26 Введение в Kubernetes [![Build Status](https://travis-ci.com/Otus-DevOps-2018-05/maksov_microservices.svg?branch=kubernetes-1)](https://travis-ci.com/Otus-DevOps-2018-05/maksov_microservices)
 
 #### Создание примитивов
 
