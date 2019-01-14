@@ -1,5 +1,11 @@
 ## python specific
 *.pyc
+*.tgz
+*.lock
 build_info.txt
 .env
 blackbox_exporter
+kubernetes/Gitlab_ci/comment
+kubernetes/Gitlab_ci/post
+kubernetes/Gitlab_ci/ui
+kubernetes/Gitlab_ci
